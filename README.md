@@ -6,11 +6,12 @@ This project is an inventory management system consisting of separate backend an
 
 To run the project, execute the following command:
 
-
+```docker
 docker-compose up --build
 
 This command will build the containers and start the application.
 
+```
 ## Frontend
 
 The frontend is hosted on an Nginx server. To access the frontend, open your web browser and go to:
