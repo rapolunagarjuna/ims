@@ -1,0 +1,30 @@
+version: '3'
+services:
+  backend:
+    build: ./backend
+    volumes:
+      - ./backend:/usr/src/app
+    ports:
+      - '3000:3000'
+    environment:
+      - DB_URI=mongodb+srv://nagarjunarapolu001:Test12345@cluster0.igtxw5r.mongodb.net/
+      - SECRET_KEY=TEMP
+      - PORT=3000
+    depends_on:
+      - mongodb
+    links:
+      - mongodb
+  mongodb:
+    image: mongo
+    ports:
+      - '27017:27017'
+  frontend:
+    build: 
+      context: ./frontend
+      dockerfile: Dockerfile
+    volumes:
+      - ./frontend:/usr/src/app
+    ports:
+      - '8080:80'
+    environment:
+      - NODE_ENV=development
